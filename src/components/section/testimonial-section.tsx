@@ -67,14 +67,8 @@ export function TestimonialSection() {
         </div>
       </div>
 
-      {/* Row 1 → — mask fades from 65% so partial 4th card is always hidden */}
-      <div
-        className="mb-4 py-2"
-        style={{
-          maskImage: "linear-gradient(to right, transparent 0%, black 6%, black 65%, transparent 90%)",
-          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 6%, black 65%, transparent 90%)",
-        }}
-      >
+      {/* Row 1 → */}
+      <div className="relative mb-4 py-2">
         <div className="marquee-row" style={{ "--duration": "48s", "--gap": "0px" } as React.CSSProperties} aria-hidden>
           {[0, 1].map((run) => (
             <div key={run} className="flex gap-4 pl-4 shrink-0" style={{ animation: "marquee 48s linear infinite" }}>
@@ -82,16 +76,12 @@ export function TestimonialSection() {
             </div>
           ))}
         </div>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16" style={{ background: "linear-gradient(to right, oklch(8.5% 0.014 258), transparent)" }} />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-80" style={{ background: "linear-gradient(to left, oklch(8.5% 0.014 258) 40%, transparent)" }} />
       </div>
 
       {/* Row 2 ← */}
-      <div
-        className="py-2"
-        style={{
-          maskImage: "linear-gradient(to right, transparent 0%, black 6%, black 65%, transparent 90%)",
-          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 6%, black 65%, transparent 90%)",
-        }}
-      >
+      <div className="relative py-2">
         <div className="marquee-row" style={{ "--duration": "54s", "--gap": "0px" } as React.CSSProperties} aria-hidden>
           {[0, 1].map((run) => (
             <div key={run} className="flex gap-4 pl-4 shrink-0" style={{ animation: "marquee 54s linear infinite reverse" }}>
@@ -99,6 +89,8 @@ export function TestimonialSection() {
             </div>
           ))}
         </div>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16" style={{ background: "linear-gradient(to right, oklch(8.5% 0.014 258), transparent)" }} />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-80" style={{ background: "linear-gradient(to left, oklch(8.5% 0.014 258) 40%, transparent)" }} />
       </div>
     </section>
   );
