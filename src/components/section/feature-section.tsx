@@ -2,7 +2,7 @@ import { features, team } from "@/lib/config";
 
 export function FeatureSection() {
   return (
-    <section className="section-py divider bg-background">
+    <section id="about" className="section-py divider bg-background">
       <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10">
 
         {/* Header */}

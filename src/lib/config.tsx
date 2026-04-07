@@ -190,5 +190,5 @@ export const certifications = [
   { name: "BBB A+", label: "Accredited Since 2010", link: "https://www.bbb.org/us/mn/minneapolis/profile/general-contractor/smart-construction-remodeling-inc-0704-96160987", icon: "⭐" },
   { name: "IICRC Certified", label: "Clean Trust Firm", link: "https://www.iicrc.org", icon: "✅" },
   { name: "GAF Master Elite", label: "Top 3% Nationwide", link: "https://www.gaf.com", icon: "🏅" },
-  { name: "HAAG Certified", label: "Storm Inspector", link: "#", icon: "🔍" },
+  { name: "HAAG Certified", label: "Storm Inspector", link: "https://www.haag.com", icon: "🔍" },
 ];

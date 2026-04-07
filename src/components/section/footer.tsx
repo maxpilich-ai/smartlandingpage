@@ -19,7 +19,7 @@ export function Footer() {
 
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <a href="#" className="flex items-center gap-3 mb-5 w-fit" aria-label="Smart Construction">
+            <a href="/" className="flex items-center gap-3 mb-5 w-fit" aria-label="Smart Construction home">
               <div className="w-9 h-9 rounded-xl bg-primary flex items-center justify-center">
                 <span className="text-white font-black text-[12px]">SC</span>
               </div>

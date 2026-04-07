@@ -12,7 +12,7 @@ export function PricingSection() {
   };
 
   return (
-    <section className="section-py divider surface-1">
+    <section id="financing" className="section-py divider surface-1">
       <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10">
 
         {/* Header */}

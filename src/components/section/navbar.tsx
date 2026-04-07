@@ -12,12 +12,22 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
+  const scrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("#")) {
+      e.preventDefault();
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    setMenuOpen(false);
+  };
+
   const links = [
-    { href: "#services",      label: "Services" },
-    { href: "#process",       label: "Process" },
-    { href: "#testimonials",  label: "Reviews" },
-    { href: "#faq",           label: "FAQ" },
-    { href: "#contact",       label: "Contact" },
+    { href: "#services",     label: "Services" },
+    { href: "#process",      label: "Process" },
+    { href: "#about",        label: "About" },
+    { href: "#testimonials", label: "Reviews" },
+    { href: "#faq",          label: "FAQ" },
+    { href: "#contact",      label: "Contact" },
   ];
 
   return (
@@ -31,7 +41,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 flex items-center justify-between h-[66px]">
 
         {/* Logo */}
-        <a href="#" className="flex items-center gap-3 group" aria-label="Smart Construction">
+        <a href="/" className="flex items-center gap-3 group" aria-label="Smart Construction home">
           <div className="relative w-8 h-8 flex-shrink-0">
             <div className="absolute inset-0 rounded-xl bg-primary/25 blur-[6px] group-hover:bg-primary/40 transition-colors" />
             <div className="relative w-8 h-8 rounded-xl bg-primary flex items-center justify-center">
@@ -50,6 +60,7 @@ export function Navbar() {
             <a
               key={href}
               href={href}
+              onClick={(e) => scrollTo(e, href)}
               className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-xl hover:bg-white/5"
             >
               {label}
@@ -98,7 +109,7 @@ export function Navbar() {
             <a
               key={href}
               href={href}
-              onClick={() => setMenuOpen(false)}
+              onClick={(e) => scrollTo(e, href)}
               className="px-4 py-3 text-sm text-muted-foreground hover:text-foreground rounded-xl hover:bg-white/6 transition-colors min-h-[44px] flex items-center"
             >
               {label}
