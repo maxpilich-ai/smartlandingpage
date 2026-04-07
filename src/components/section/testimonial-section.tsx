@@ -68,7 +68,7 @@ export function TestimonialSection() {
       </div>
 
       {/* Row 1 → */}
-      <div className="relative mb-4 py-2">
+      <div className="relative mb-4 py-2 overflow-hidden">
         <div className="marquee-row" style={{ "--duration": "48s", "--gap": "0px" } as React.CSSProperties} aria-hidden>
           {[0, 1].map((run) => (
             <div key={run} className="flex gap-4 pl-4 shrink-0" style={{ animation: "marquee 48s linear infinite" }}>
@@ -81,7 +81,7 @@ export function TestimonialSection() {
       </div>
 
       {/* Row 2 ← */}
-      <div className="relative py-2">
+      <div className="relative py-2 overflow-hidden">
         <div className="marquee-row" style={{ "--duration": "54s", "--gap": "0px" } as React.CSSProperties} aria-hidden>
           {[0, 1].map((run) => (
             <div key={run} className="flex gap-4 pl-4 shrink-0" style={{ animation: "marquee 54s linear infinite reverse" }}>
