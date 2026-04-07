@@ -67,8 +67,8 @@ export function TestimonialSection() {
         </div>
       </div>
 
-      {/* Row 1 → */}
-      <div className="relative mb-4 py-2 overflow-hidden">
+      {/* Row 1 → — clip-path hard-cuts the right edge, no z-index issues */}
+      <div className="mb-4 py-2" style={{ clipPath: "inset(0 120px 0 0)" }}>
         <div className="marquee-row" style={{ "--duration": "48s", "--gap": "0px" } as React.CSSProperties} aria-hidden>
           {[0, 1].map((run) => (
             <div key={run} className="flex gap-4 pl-4 shrink-0" style={{ animation: "marquee 48s linear infinite" }}>
@@ -76,12 +76,10 @@ export function TestimonialSection() {
             </div>
           ))}
         </div>
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 z-20 bg-gradient-to-r from-background to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-80 z-20 bg-gradient-to-l from-background to-transparent" />
       </div>
 
       {/* Row 2 ← */}
-      <div className="relative py-2 overflow-hidden">
+      <div className="py-2" style={{ clipPath: "inset(0 120px 0 0)" }}>
         <div className="marquee-row" style={{ "--duration": "54s", "--gap": "0px" } as React.CSSProperties} aria-hidden>
           {[0, 1].map((run) => (
             <div key={run} className="flex gap-4 pl-4 shrink-0" style={{ animation: "marquee 54s linear infinite reverse" }}>
@@ -89,8 +87,6 @@ export function TestimonialSection() {
             </div>
           ))}
         </div>
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 z-20 bg-gradient-to-r from-background to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-80 z-20 bg-gradient-to-l from-background to-transparent" />
       </div>
     </section>
   );
