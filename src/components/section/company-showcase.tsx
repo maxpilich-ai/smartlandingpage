@@ -32,15 +32,15 @@ export function CompanyShowcase() {
 
       {/* Outer: clips overflow. Inner gradient divs fade left+right edges over the scrolling content. */}
       <div className="relative overflow-hidden">
-        {/* Left fade */}
+        {/* Left fade - thin, only covers the pixel-edge */}
         <div
           className="absolute inset-y-0 left-0 z-10 pointer-events-none"
-          style={{ width: "160px", background: "linear-gradient(to right, rgb(3,3,5) 40%, transparent 100%)" }}
+          style={{ width: "40px", background: "linear-gradient(to right, rgb(3,3,5) 0%, transparent 100%)" }}
         />
-        {/* Right fade */}
+        {/* Right fade - thin, only covers the pixel-edge */}
         <div
           className="absolute inset-y-0 right-0 z-10 pointer-events-none"
-          style={{ width: "160px", background: "linear-gradient(to left, rgb(3,3,5) 40%, transparent 100%)" }}
+          style={{ width: "40px", background: "linear-gradient(to left, rgb(3,3,5) 0%, transparent 100%)" }}
         />
 
         {/* Scrolling track */}
