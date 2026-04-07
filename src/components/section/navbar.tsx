@@ -7,100 +7,116 @@ export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    const handler = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
   }, []);
 
-  const navLinks = [
-    { href: "#services", label: "Services" },
-    { href: "#process", label: "How It Works" },
-    { href: "#testimonials", label: "Reviews" },
-    { href: "#faq", label: "FAQ" },
-    { href: "#contact", label: "Contact" },
+  const links = [
+    { href: "#services",      label: "Services" },
+    { href: "#process",       label: "Process" },
+    { href: "#testimonials",  label: "Reviews" },
+    { href: "#faq",           label: "FAQ" },
+    { href: "#contact",       label: "Contact" },
   ];
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm" : "bg-transparent"
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-[oklch(8.5%_0.014_258/96%)] backdrop-blur-2xl border-b border-white/6 shadow-[0_1px_0_oklch(100%_0_0/4%)]"
+          : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-primary-foreground font-bold text-sm">
-              SC
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10 flex items-center justify-between h-[66px]">
+
+        {/* Logo */}
+        <a href="#" className="flex items-center gap-3 group" aria-label="Smart Construction">
+          <div className="relative w-8 h-8 flex-shrink-0">
+            <div className="absolute inset-0 rounded-xl bg-primary/25 blur-[6px] group-hover:bg-primary/40 transition-colors" />
+            <div className="relative w-8 h-8 rounded-xl bg-primary flex items-center justify-center">
+              <span className="text-white font-black text-[11px] tracking-tight">SC</span>
             </div>
-            <span className="font-semibold text-foreground hidden sm:block">
-              Smart Construction
-            </span>
+          </div>
+          <div className="hidden sm:block leading-none">
+            <p className="text-[14px] font-bold text-foreground tracking-tight">Smart Construction</p>
+            <p className="text-[10px] text-muted-foreground tracking-[0.15em] uppercase mt-[1px]">& Remodeling</p>
+          </div>
+        </a>
+
+        {/* Desktop links */}
+        <nav className="hidden md:flex items-center gap-0.5" aria-label="Primary">
+          {links.map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors rounded-xl hover:bg-white/5"
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+
+        {/* Right */}
+        <div className="flex items-center gap-3">
+          <a
+            href={`tel:${siteConfig.phoneRaw}`}
+            className="hidden lg:flex items-center gap-2 text-sm font-semibold text-muted-foreground hover:text-primary transition-colors"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+            {siteConfig.phone}
           </a>
+          <a
+            href="#contact"
+            className="btn-primary hidden sm:flex text-sm px-5 py-2.5 gap-2"
+          >
+            Free Inspection
+          </a>
+          {/* Hamburger */}
+          <button
+            className="md:hidden w-10 h-10 flex items-center justify-center rounded-xl hover:bg-white/8 transition-colors"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+          >
+            <div className="flex flex-col gap-[5px] w-5">
+              <span className={`block h-[1.5px] bg-foreground rounded-full transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-[6.5px]" : ""}`} />
+              <span className={`block h-[1.5px] bg-foreground rounded-full transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+              <span className={`block h-[1.5px] bg-foreground rounded-full transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-[6.5px]" : ""}`} />
+            </div>
+          </button>
+        </div>
+      </div>
 
-          {/* Desktop nav */}
-          <nav className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setMenuOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
-          {/* CTA */}
-          <div className="flex items-center gap-3">
+      {/* Mobile menu */}
+      <div
+        className={`md:hidden overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-[400px] border-t border-white/5" : "max-h-0"}`}
+        aria-hidden={!menuOpen}
+      >
+        <nav className="bg-[oklch(8.5%_0.014_258/98%)] backdrop-blur-2xl max-w-7xl mx-auto px-5 py-4 flex flex-col gap-1">
+          {links.map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              onClick={() => setMenuOpen(false)}
+              className="px-4 py-3 text-sm text-muted-foreground hover:text-foreground rounded-xl hover:bg-white/6 transition-colors min-h-[44px] flex items-center"
+            >
+              {label}
+            </a>
+          ))}
+          <div className="pt-3 border-t border-white/6 mt-2 flex flex-col gap-2">
             <a
               href={`tel:${siteConfig.phoneRaw}`}
-              className="hidden sm:flex items-center gap-1.5 text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+              className="px-4 py-3 text-sm font-semibold text-primary flex items-center gap-2 min-h-[44px]"
             >
-              <span>📞</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-primary" />
               {siteConfig.phone}
             </a>
-            <a
-              href="#contact"
-              className="bg-primary text-primary-foreground text-sm font-medium px-4 py-2 rounded-lg hover:bg-primary/90 transition-colors min-h-[44px] flex items-center"
-            >
-              Free Inspection
+            <a href="#contact" className="btn-primary py-3.5 text-sm">
+              Book Free Inspection
             </a>
-            {/* Mobile menu button */}
-            <button
-              className="md:hidden p-2 rounded-lg hover:bg-muted transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle menu"
-            >
-              <span className="text-lg">{menuOpen ? "✕" : "☰"}</span>
-            </button>
           </div>
-        </div>
-
-        {/* Mobile menu */}
-        {menuOpen && (
-          <div className="md:hidden border-t border-border bg-background/98 backdrop-blur-md pb-4">
-            <nav className="flex flex-col gap-1 pt-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm text-foreground px-4 py-3 hover:bg-muted rounded-lg transition-colors min-h-[44px] flex items-center"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  {link.label}
-                </a>
-              ))}
-              <a
-                href={`tel:${siteConfig.phoneRaw}`}
-                className="text-sm font-medium text-primary px-4 py-3 hover:bg-muted rounded-lg transition-colors min-h-[44px] flex items-center gap-2"
-              >
-                <span>📞</span> {siteConfig.phone}
-              </a>
-            </nav>
-          </div>
-        )}
+        </nav>
       </div>
     </header>
   );

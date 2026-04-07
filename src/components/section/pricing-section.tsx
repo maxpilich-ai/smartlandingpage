@@ -2,92 +2,107 @@
 import { useState } from "react";
 
 export function PricingSection() {
-  const [deductible, setDeductible] = useState(1500);
+  const [ded, setDed] = useState(1500);
+  const monthly     = Math.round(ded / 18);
+  const insEstimate = Math.round(ded * 14);
 
-  const monthly = Math.round(deductible / 18);
-  const insurancePays = Math.round(deductible * 15); // rough claim value estimate
+  const pct = ((ded - 500) / 4500) * 100;
+  const trackStyle = {
+    background: `linear-gradient(to right, var(--primary) 0%, var(--primary) ${pct}%, oklch(100% 0 0 / 9%) ${pct}%, oklch(100% 0 0 / 9%) 100%)`,
+  };
 
   return (
-    <section className="py-20 sm:py-28 bg-muted/20">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 text-primary text-sm font-medium mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            Financing Available
+    <section className="section-py divider surface-1">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10">
+
+        {/* Header */}
+        <div className="mb-14 lg:mb-16">
+          <p className="text-label mb-4">Financing</p>
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+            <h2 className="heading-display text-[clamp(40px,7vw,72px)] text-foreground max-w-md">
+              What Does This<br />Cost Me?
+            </h2>
+            <p className="text-muted-foreground text-base sm:text-lg max-w-[340px] leading-relaxed">
+              In most cases — only your deductible. Insurance pays the rest, billed directly.
+            </p>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            What Does This Cost Me?
-          </h2>
-          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
-            In most cases — only your deductible. Insurance pays everything else. Use the calculator below to see your estimated cost.
-          </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
+        <div className="grid lg:grid-cols-[1fr_1.15fr] gap-8 items-start">
           {/* Calculator */}
-          <div className="bg-card border border-border rounded-3xl p-8">
-            <h3 className="font-bold text-foreground text-lg mb-6">Your Deductible Calculator</h3>
+          <div className="card-base rounded-3xl p-8 sm:p-10 relative overflow-hidden">
+            <div className="glow-orb w-64 h-64 bg-primary/8 top-0 right-0" />
+            <div className="relative">
+              <h3 className="font-bold text-foreground text-lg mb-8">Deductible Calculator</h3>
 
-            <div className="mb-6">
-              <div className="flex justify-between text-sm mb-2">
-                <span className="text-muted-foreground">Your deductible</span>
-                <span className="font-bold text-foreground text-lg">${deductible.toLocaleString()}</span>
+              {/* Value display */}
+              <div className="mb-6">
+                <div className="flex items-end justify-between mb-3">
+                  <span className="text-sm text-muted-foreground">Your deductible</span>
+                  <span className="text-[42px] font-black text-foreground tabular-nums leading-none">
+                    ${ded.toLocaleString()}
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min={500} max={5000} step={100}
+                  value={ded}
+                  onChange={(e) => setDed(Number(e.target.value))}
+                  className="w-full h-1.5 rounded-full cursor-pointer accent-primary"
+                  style={trackStyle}
+                  aria-label="Deductible amount"
+                />
+                <div className="flex justify-between text-[11px] text-muted-foreground/40 mt-2">
+                  <span>$500</span><span>$5,000</span>
+                </div>
               </div>
-              <input
-                type="range"
-                min={500}
-                max={5000}
-                step={100}
-                value={deductible}
-                onChange={(e) => setDeductible(Number(e.target.value))}
-                className="w-full h-2 rounded-full accent-primary cursor-pointer"
-              />
-              <div className="flex justify-between text-xs text-muted-foreground mt-1">
-                <span>$500</span>
-                <span>$5,000</span>
-              </div>
-            </div>
 
-            <div className="space-y-3 mb-6">
-              <div className="flex justify-between items-center py-3 border-b border-border">
-                <span className="text-sm text-muted-foreground">You pay</span>
-                <span className="font-bold text-foreground">${deductible.toLocaleString()}</span>
+              {/* Breakdown rows */}
+              <div className="space-y-0 mb-8 border border-white/6 rounded-2xl overflow-hidden divide-y divide-white/5">
+                {[
+                  { label: "You pay",           value: `$${ded.toLocaleString()}`,       sub: "One-time deductible",            highlight: false },
+                  { label: "Monthly option",    value: `$${monthly}/mo`,                 sub: "0% interest financing available", highlight: false },
+                  { label: "Insurance pays",    value: `$${insEstimate.toLocaleString()}+`, sub: "Billed directly to your carrier", highlight: true  },
+                ].map((row) => (
+                  <div key={row.label} className="flex items-center justify-between px-5 py-4">
+                    <div>
+                      <p className="text-[13px] font-semibold text-foreground">{row.label}</p>
+                      <p className="text-[11px] text-muted-foreground">{row.sub}</p>
+                    </div>
+                    <span className={`text-[17px] font-black tabular-nums ${row.highlight ? "text-green-400" : "text-foreground"}`}>
+                      {row.value}
+                    </span>
+                  </div>
+                ))}
               </div>
-              <div className="flex justify-between items-center py-3 border-b border-border">
-                <span className="text-sm text-muted-foreground">Monthly payment option</span>
-                <span className="font-bold text-primary">${monthly}/mo</span>
-              </div>
-              <div className="flex justify-between items-center py-3">
-                <span className="text-sm text-muted-foreground">Estimated insurance pays</span>
-                <span className="font-bold text-green-600">${insurancePays.toLocaleString()}+</span>
-              </div>
-            </div>
 
-            <div className="bg-primary/10 border border-primary/20 rounded-xl p-4 text-center">
-              <p className="text-sm font-semibold text-primary">Insurance pays the rest — direct billing</p>
-              <p className="text-xs text-muted-foreground mt-1">We never charge more than your insurance approves</p>
+              <a href="#contact" className="btn-primary w-full py-4 text-sm gap-2">
+                Book Free Inspection — No Commitment
+              </a>
             </div>
           </div>
 
-          {/* What's included */}
-          <div className="space-y-4">
-            <h3 className="font-bold text-foreground text-xl mb-6">What You Get — Zero Extra Charge</h3>
-            {[
-              { icon: "🚁", title: "Free Drone Inspection", desc: "Full aerial property documentation, same week" },
-              { icon: "📋", title: "Insurance Claim Filed For You", desc: "We handle all paperwork, negotiation, and appeals" },
-              { icon: "🔨", title: "Premium Materials", desc: "GAF, Hardie, Andersen — no budget substitutions" },
-              { icon: "✅", title: "Final Walkthrough", desc: "We don't leave until you sign off on perfect work" },
-              { icon: "🛡️", title: "GAF Warranty", desc: "50-year roofing warranty. Transferable to new owners." },
-              { icon: "📞", title: "Dedicated Project Manager", desc: "One point of contact from start to finish" },
-            ].map((item) => (
-              <div key={item.title} className="flex items-start gap-4 p-4 bg-card border border-border rounded-xl hover:border-primary/30 transition-colors">
-                <span className="text-2xl flex-shrink-0">{item.icon}</span>
-                <div>
-                  <p className="font-semibold text-sm text-foreground">{item.title}</p>
-                  <p className="text-xs text-muted-foreground">{item.desc}</p>
+          {/* Included items */}
+          <div>
+            <p className="text-label mb-5">What's Included — Always</p>
+            <div className="space-y-3">
+              {[
+                { icon: "🚁", t: "Free Drone Inspection",     d: "Full aerial documentation. Same week, no cost." },
+                { icon: "📋", t: "Claim Filed For You",       d: "Paperwork, Xactimate, negotiation, appeals." },
+                { icon: "🔨", t: "Premium Materials Only",    d: "GAF, James Hardie, Andersen — no budget cuts." },
+                { icon: "✅", t: "Final Walkthrough",         d: "We don't leave until you're completely satisfied." },
+                { icon: "🛡️", t: "GAF System Warranty",      d: "Up to 50 years. Fully transferable to new owners." },
+                { icon: "👤", t: "Dedicated Project Manager", d: "One person. One number. Full accountability." },
+              ].map((item) => (
+                <div key={item.t} className="card-base rounded-2xl p-5 flex items-start gap-4">
+                  <div className="icon-box w-10 h-10 text-[18px] flex-shrink-0">{item.icon}</div>
+                  <div>
+                    <p className="font-bold text-[13px] text-foreground mb-0.5">{item.t}</p>
+                    <p className="text-[12px] text-muted-foreground leading-relaxed">{item.d}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>

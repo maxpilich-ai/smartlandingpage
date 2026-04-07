@@ -1,83 +1,69 @@
-"use client";
 import { features, team } from "@/lib/config";
 
 export function FeatureSection() {
   return (
-    <section className="py-20 sm:py-28 bg-background">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="section-py divider bg-background">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10">
+
         {/* Header */}
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 text-primary text-sm font-medium mb-3">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-            Why Smart Construction
-          </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            The Contractor Who Fights For You
+        <div className="mb-14 lg:mb-16">
+          <p className="text-label mb-4">Why Us</p>
+          <h2 className="heading-display text-[clamp(40px,7vw,72px)] text-foreground max-w-xl">
+            The Contractor<br />Who{" "}
+            <span className="gradient-text">Fights For You.</span>
           </h2>
-          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto">
-            Most contractors fix the damage and hand you a bill. We fight your insurance company first, so you pay as little as possible.
-          </p>
         </div>
 
-        {/* Feature grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-20">
+        {/* Feature grid — varied layout */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-16">
           {features.map((f) => (
-            <div
-              key={f.title}
-              className="bg-card border border-border rounded-2xl p-6 hover:border-primary/30 hover:shadow-sm transition-all group"
-            >
-              <div className="text-3xl mb-4">{f.icon}</div>
-              <h3 className="font-bold text-foreground text-base mb-2 group-hover:text-primary transition-colors">
-                {f.title}
-              </h3>
+            <div key={f.title} className="card-base rounded-2xl p-7 cursor-default">
+              <div className="icon-box w-11 h-11 text-xl mb-5">{f.icon}</div>
+              <h3 className="font-bold text-foreground text-base mb-2">{f.title}</h3>
               <p className="text-sm text-muted-foreground leading-relaxed">{f.description}</p>
             </div>
           ))}
         </div>
 
-        {/* Team section */}
-        <div className="border-t border-border pt-16">
-          <div className="text-center mb-10">
-            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
-              Meet the Team
+        {/* Battle callout — full-width dark band */}
+        <div className="relative overflow-hidden rounded-3xl border border-white/7 surface-1 px-8 py-12 sm:px-14 sm:py-16 mb-16">
+          <div className="glow-orb w-[500px] h-[400px] bg-primary/12 top-1/2 right-[-100px] -translate-y-1/2" />
+          <div className="relative max-w-2xl">
+            <p className="text-label mb-4">Battle Record</p>
+            <h3 className="heading-display text-[clamp(32px,5vw,56px)] text-foreground mb-5 max-w-lg">
+              20 Years Fighting the Insurance Industry.
             </h3>
-            <p className="text-muted-foreground text-sm sm:text-base max-w-xl mx-auto">
-              Real people. Real accountability. We put our names behind every project.
+            <p className="text-muted-foreground text-[15px] mb-9 leading-relaxed">
+              State Farm. Allstate. USAA. Progressive. We've gone up against every major carrier — and we know exactly how each one tries to underpay homeowners.
             </p>
+            <div className="flex flex-wrap gap-2.5">
+              {["State Farm", "Allstate", "USAA", "Liberty Mutual", "Progressive", "Travelers", "Farmers", "Nationwide"].map((ins) => (
+                <span key={ins} className="glass text-[12px] font-semibold text-foreground/70 px-4 py-2 rounded-xl">
+                  {ins}
+                </span>
+              ))}
+            </div>
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {team.map((member) => (
-              <div
-                key={member.name}
-                className="bg-card border border-border rounded-2xl p-6 text-center hover:border-primary/30 transition-colors"
-              >
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center text-2xl mx-auto mb-4">
+        </div>
+
+        {/* Team */}
+        <div>
+          <div className="mb-10">
+            <p className="text-label mb-4">The Team</p>
+            <h3 className="heading-display text-[clamp(32px,5vw,52px)] text-foreground">Real People. Real Names.</h3>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {team.map((member, i) => (
+              <div key={member.name} className="card-base rounded-2xl p-6 cursor-default">
+                <div className={`w-11 h-11 rounded-2xl flex items-center justify-center text-lg font-black text-white mb-5 ${i === 0 ? "bg-primary" : "bg-white/10"}`}>
                   {member.name.charAt(0)}
                 </div>
-                <h4 className="font-bold text-foreground text-sm mb-0.5">{member.name}</h4>
-                <p className="text-xs text-primary font-medium mb-2">{member.role}</p>
+                <h4 className="font-bold text-foreground text-sm leading-tight">{member.name}</h4>
+                <p className="text-[11px] text-primary font-semibold mt-0.5 mb-3 tracking-wide">{member.role}</p>
                 <p className="text-xs text-muted-foreground leading-relaxed">{member.bio}</p>
               </div>
             ))}
           </div>
-        </div>
-
-        {/* Insurance fight visual */}
-        <div className="mt-16 bg-gradient-to-r from-primary/10 via-muted/50 to-primary/10 border border-primary/20 rounded-3xl p-8 sm:p-12 text-center">
-          <div className="text-4xl sm:text-5xl mb-4">⚔️</div>
-          <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-3">
-            Insurance Companies We've Beaten
-          </h3>
-          <div className="flex flex-wrap gap-3 justify-center mt-6">
-            {["State Farm", "Allstate", "USAA", "Liberty Mutual", "Progressive", "Travelers", "Farmers", "Nationwide"].map((ins) => (
-              <span key={ins} className="bg-background border border-border px-4 py-2 rounded-lg text-sm font-medium text-foreground">
-                {ins}
-              </span>
-            ))}
-          </div>
-          <p className="text-muted-foreground text-sm mt-6">
-            20+ years. Every major carrier. We know exactly how they operate — and how to win.
-          </p>
         </div>
       </div>
     </section>
