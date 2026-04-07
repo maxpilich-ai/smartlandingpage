@@ -21,9 +21,10 @@ export function WorkflowSection() {
         {/* Steps — row layout with editorial step numbers */}
         <div className="border border-white/6 rounded-3xl overflow-hidden divide-y divide-white/5">
           {claimProcess.map((step, i) => (
-            <div
+            <a
               key={step.step}
-              className="grid sm:grid-cols-[90px_1fr_auto] items-center gap-6 sm:gap-10 bg-card/50 hover:bg-card/80 px-7 py-8 sm:py-10 transition-colors group"
+              href="#contact"
+              className="grid sm:grid-cols-[90px_1fr_auto] items-center gap-6 sm:gap-10 bg-card/50 hover:bg-card/80 px-7 py-8 sm:py-10 transition-colors group no-underline"
             >
               {/* Big editorial number */}
               <div
@@ -55,7 +56,7 @@ export function WorkflowSection() {
                   </div>
                 )}
               </div>
-            </div>
+            </a>
           ))}
         </div>
 
