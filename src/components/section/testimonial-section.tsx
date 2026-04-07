@@ -76,8 +76,8 @@ export function TestimonialSection() {
             </div>
           ))}
         </div>
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16" style={{ background: "linear-gradient(to right, oklch(8.5% 0.014 258), transparent)" }} />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-80" style={{ background: "linear-gradient(to left, oklch(8.5% 0.014 258) 40%, transparent)" }} />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 z-20 bg-gradient-to-r from-background to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-80 z-20 bg-gradient-to-l from-background to-transparent" />
       </div>
 
       {/* Row 2 ← */}
@@ -89,8 +89,8 @@ export function TestimonialSection() {
             </div>
           ))}
         </div>
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-16" style={{ background: "linear-gradient(to right, oklch(8.5% 0.014 258), transparent)" }} />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-80" style={{ background: "linear-gradient(to left, oklch(8.5% 0.014 258) 40%, transparent)" }} />
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-16 z-20 bg-gradient-to-r from-background to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-80 z-20 bg-gradient-to-l from-background to-transparent" />
       </div>
     </section>
   );
