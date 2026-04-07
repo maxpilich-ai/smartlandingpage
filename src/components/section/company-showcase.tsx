@@ -11,7 +11,7 @@ export function CompanyShowcase() {
       </p>
 
       {/* Scrolling marquee */}
-      <div className="relative">
+      <div className="relative" style={{ WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)", maskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)" }}>
         <div
           className="marquee-row"
           style={{ "--duration": "32s", "--gap": "0px" } as React.CSSProperties}

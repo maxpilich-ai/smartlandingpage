@@ -68,7 +68,7 @@ export function TestimonialSection() {
       </div>
 
       {/* Row 1 → */}
-      <div className="mb-4 py-2">
+      <div className="mb-4 py-2" style={{ WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 4%, black 92%, transparent 100%)", maskImage: "linear-gradient(to right, transparent 0%, black 4%, black 92%, transparent 100%)" }}>
         <div className="marquee-row" style={{ "--duration": "48s", "--gap": "0px" } as React.CSSProperties} aria-hidden>
           {[0, 1].map((run) => (
             <div key={run} className="flex gap-4 pl-4 shrink-0" style={{ animation: "marquee 48s linear infinite" }}>
@@ -79,7 +79,7 @@ export function TestimonialSection() {
       </div>
 
       {/* Row 2 ← */}
-      <div className="py-2">
+      <div className="py-2" style={{ WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 4%, black 92%, transparent 100%)", maskImage: "linear-gradient(to right, transparent 0%, black 4%, black 92%, transparent 100%)" }}>
         <div className="marquee-row" style={{ "--duration": "54s", "--gap": "0px" } as React.CSSProperties} aria-hidden>
           {[0, 1].map((run) => (
             <div key={run} className="flex gap-4 pl-4 shrink-0" style={{ animation: "marquee 54s linear infinite reverse" }}>
