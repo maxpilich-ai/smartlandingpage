@@ -44,7 +44,7 @@ export function TestimonialSection() {
   const r2 = [...testimonials.slice(half),    ...testimonials.slice(half)];
 
   return (
-    <section id="testimonials" className="section-py divider bg-background overflow-hidden">
+    <section id="testimonials" className="section-py divider bg-background">
       {/* Header */}
       <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10 mb-14">
         <p className="text-label mb-4">Social Proof</p>
@@ -68,7 +68,7 @@ export function TestimonialSection() {
       </div>
 
       {/* Row 1 → */}
-      <div className="relative mb-4">
+      <div className="relative mb-4 py-2 overflow-x-clip">
         <div className="marquee-row" style={{ "--duration": "48s", "--gap": "0px" } as React.CSSProperties} aria-hidden>
           {[0, 1].map((run) => (
             <div key={run} className="flex gap-4 pl-4 shrink-0" style={{ animation: "marquee 48s linear infinite" }}>
@@ -81,7 +81,7 @@ export function TestimonialSection() {
       </div>
 
       {/* Row 2 ← */}
-      <div className="relative">
+      <div className="relative py-2 overflow-x-clip">
         <div className="marquee-row" style={{ "--duration": "54s", "--gap": "0px" } as React.CSSProperties} aria-hidden>
           {[0, 1].map((run) => (
             <div key={run} className="flex gap-4 pl-4 shrink-0" style={{ animation: "marquee 54s linear infinite reverse" }}>

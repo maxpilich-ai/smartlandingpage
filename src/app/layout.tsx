@@ -3,6 +3,12 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export const metadata: Metadata = {
   title: "Smart Construction & Remodeling | Minnesota's #1 Insurance Restoration",
   description: "Storm damage? We fight your insurance company so you don't have to. Free drone inspection, Xactimate estimates, 98% claim approval rate. Serving Minnesota & Florida since 2004.",

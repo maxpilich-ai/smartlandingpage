@@ -289,8 +289,9 @@
 /* ── Marquee ── */
 .marquee-row {
   display: flex;
-  overflow: hidden;
+  overflow: visible;
   user-select: none;
+  width: 100%;
 }
 
 /* ── Input / select styling ── */

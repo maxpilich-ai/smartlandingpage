@@ -57,7 +57,7 @@ export function HeroSection() {
       <div className="glow-orb w-[500px] h-[500px] bg-[var(--grad-b)]/8 bottom-[-100px] left-[-150px]" style={{ animationDelay: "3s" }} />
       <div className="glow-orb w-[350px] h-[350px] bg-[var(--grad-c)]/8 top-1/3 right-[-80px]" style={{ animationDelay: "5s" }} />
       {/* Vignette at bottom */}
-      <div className="absolute bottom-0 inset-x-0 h-40 bg-gradient-to-t from-background to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-background to-transparent pointer-events-none" />
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-5 sm:px-8 lg:px-10 text-center">
 
