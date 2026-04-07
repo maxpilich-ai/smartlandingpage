@@ -1,7 +1,7 @@
 import { testimonials } from "@/lib/config";
 
-const STAR = (filled: boolean) => (
-  <svg key={String(filled)} width="13" height="13" viewBox="0 0 24 24" fill={filled ? "#f59e0b" : "none"} stroke={filled ? "#f59e0b" : "#334155"} strokeWidth="1.5" aria-hidden>
+const STAR = (filled: boolean, i: number) => (
+  <svg key={i} width="13" height="13" viewBox="0 0 24 24" fill={filled ? "#f59e0b" : "none"} stroke={filled ? "#f59e0b" : "#334155"} strokeWidth="1.5" aria-hidden>
     <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
   </svg>
 );
@@ -13,10 +13,10 @@ function Card({ t }: { t: typeof testimonials[0] }) {
     BBB:      "text-blue-500",
   };
   return (
-    <article className="card-base rounded-2xl p-6 sm:p-7 shrink-0 w-[300px] sm:w-[336px] flex flex-col gap-4">
+    <article className="card-base rounded-2xl p-6 sm:p-7 flex flex-col gap-4 h-full">
       <div className="flex items-center justify-between">
         <div className="flex gap-0.5" aria-label={`${t.rating} out of 5 stars`}>
-          {Array.from({ length: 5 }).map((_, i) => STAR(i < t.rating))}
+          {Array.from({ length: 5 }).map((_, i) => STAR(i < t.rating, i))}
         </div>
         <span className={`text-[10px] font-bold uppercase tracking-widest ${sourceColor[t.source] ?? "text-muted-foreground"}`}>
           {t.source}
@@ -39,16 +39,12 @@ function Card({ t }: { t: typeof testimonials[0] }) {
 }
 
 export function TestimonialSection() {
-  const half = Math.ceil(testimonials.length / 2);
-  const r1 = [...testimonials.slice(0, half), ...testimonials.slice(0, half)];
-  const r2 = [...testimonials.slice(half),    ...testimonials.slice(half)];
-
   return (
-    <section id="testimonials" className="section-py divider bg-background overflow-hidden">
-      {/* Header */}
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10 mb-14">
+    <section id="testimonials" className="section-py divider bg-background">
+      <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10">
+        {/* Header */}
         <p className="text-label mb-4">Social Proof</p>
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
           <h2 className="heading-display text-[clamp(40px,7vw,72px)] text-foreground max-w-lg">
             Real Homeowners.<br />Real Settlements.
           </h2>
@@ -65,26 +61,11 @@ export function TestimonialSection() {
             ))}
           </div>
         </div>
-      </div>
 
-      {/* Row 1 → */}
-      <div className="mb-4 py-2" style={{ WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 4%, black 92%, transparent 100%)", maskImage: "linear-gradient(to right, transparent 0%, black 4%, black 92%, transparent 100%)" }}>
-        <div className="marquee-row" style={{ "--duration": "48s", "--gap": "0px" } as React.CSSProperties} aria-hidden>
-          {[0, 1].map((run) => (
-            <div key={run} className="flex gap-4 pl-4 shrink-0" style={{ animation: "marquee 48s linear infinite" }}>
-              {r1.map((t, i) => <Card key={`${run}-${i}`} t={t} />)}
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Row 2 ← */}
-      <div className="py-2" style={{ WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 4%, black 92%, transparent 100%)", maskImage: "linear-gradient(to right, transparent 0%, black 4%, black 92%, transparent 100%)" }}>
-        <div className="marquee-row" style={{ "--duration": "54s", "--gap": "0px" } as React.CSSProperties} aria-hidden>
-          {[0, 1].map((run) => (
-            <div key={run} className="flex gap-4 pl-4 shrink-0" style={{ animation: "marquee 54s linear infinite reverse" }}>
-              {r2.map((t, i) => <Card key={`${run}-${i}`} t={t} />)}
-            </div>
+        {/* Grid — 1 col mobile, 2 col tablet, 3 col desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {testimonials.map((t, i) => (
+            <Card key={i} t={t} />
           ))}
         </div>
       </div>
