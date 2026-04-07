@@ -34,13 +34,13 @@ export function CompanyShowcase() {
       <div className="relative overflow-hidden">
         {/* Left fade */}
         <div
-          className="absolute inset-y-0 left-0 w-20 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to right, oklch(8.5% 0.014 258) 0%, transparent 100%)" }}
+          className="absolute inset-y-0 left-0 z-10 pointer-events-none"
+          style={{ width: "160px", background: "linear-gradient(to right, rgb(3,3,5) 40%, transparent 100%)" }}
         />
         {/* Right fade */}
         <div
-          className="absolute inset-y-0 right-0 w-20 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to left, oklch(8.5% 0.014 258) 0%, transparent 100%)" }}
+          className="absolute inset-y-0 right-0 z-10 pointer-events-none"
+          style={{ width: "160px", background: "linear-gradient(to left, rgb(3,3,5) 40%, transparent 100%)" }}
         />
 
         {/* Scrolling track */}
