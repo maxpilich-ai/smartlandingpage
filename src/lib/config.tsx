@@ -29,7 +29,7 @@ export const heroContent = {
   primaryCta: "Book Free Inspection",
   secondaryCta: "See How It Works",
   stats: [
-    { value: 47382100, prefix: "$", suffix: "+", label: "Recovered from Insurance", format: "currency" },
+    { value: 47382100, prefix: "", suffix: "+", label: "Recovered from Insurance", format: "currency" },
     { value: 15000, suffix: "+", label: "Projects Completed" },
     { value: 98, suffix: "%", label: "Claim Approval Rate" },
     { value: 20, suffix: "+", label: "Years in Minnesota" },

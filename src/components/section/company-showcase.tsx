@@ -39,9 +39,7 @@ export function CompanyShowcase() {
             </div>
           ))}
         </div>
-        {/* Fade edges — outside the scrolling row so they stay fixed */}
-        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[var(--surface-1)] to-transparent pointer-events-none z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[var(--surface-1)] to-transparent pointer-events-none z-10" />
+
       </div>
     </section>
   );
