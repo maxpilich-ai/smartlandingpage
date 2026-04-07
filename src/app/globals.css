@@ -32,6 +32,10 @@
     from { transform: translateX(0); }
     to   { transform: translateX(calc(-100% - var(--gap))); }
   }
+  @keyframes scroll-x {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
   @keyframes shimmer {
     0%   { background-position: -200% center; }
     100% { background-position:  200% center; }
