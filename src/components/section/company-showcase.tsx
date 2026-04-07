@@ -10,8 +10,14 @@ export function CompanyShowcase() {
         Certified &amp; Partnered With Industry Leaders
       </p>
 
-      {/* Scrolling marquee */}
-      <div className="relative" style={{ WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)", maskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)" }}>
+      {/* overflow-hidden AND mask on the same element = clean fade, no hard clip */}
+      <div
+        style={{
+          overflow: "hidden",
+          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+          maskImage: "linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)",
+        }}
+      >
         <div
           className="marquee-row"
           style={{ "--duration": "32s", "--gap": "0px" } as React.CSSProperties}
@@ -21,7 +27,7 @@ export function CompanyShowcase() {
             <div
               key={run}
               className="flex gap-3 shrink-0"
-              style={{ animation: `marquee 32s linear infinite` }}
+              style={{ animation: "marquee 32s linear infinite" }}
             >
               {row.map((logo, i) => (
                 <div
@@ -39,7 +45,6 @@ export function CompanyShowcase() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
