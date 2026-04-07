@@ -1,8 +1,7 @@
 "use client";
 import { trustLogos } from "@/lib/config";
 
-// Duplicate enough times that the loop never exposes a raw edge
-const BASE = [...trustLogos, ...trustLogos, ...trustLogos];
+const BASE = [...trustLogos, ...trustLogos, ...trustLogos, ...trustLogos];
 
 function LogoRow() {
   return (
@@ -10,7 +9,7 @@ function LogoRow() {
       {BASE.map((logo, i) => (
         <div
           key={i}
-          className="flex items-center gap-2.5 card-base-static px-5 py-3 shrink-0 mx-1.5 hover:border-primary/25 transition-colors cursor-default"
+          className="flex items-center gap-2.5 card-base-static px-5 py-3 shrink-0 mx-1.5"
         >
           <span className="text-[11px] font-black tracking-tight" style={{ color: logo.color }}>
             {logo.abbr}
@@ -31,20 +30,23 @@ export function CompanyShowcase() {
         Certified &amp; Partnered With Industry Leaders
       </p>
 
-      {/*
-        overflow-hidden + mask-image on the SAME element.
-        Two runs inside; animation translates by -50% so the loop is seamless.
-      */}
-      <div
-        className="overflow-hidden"
-        style={{
-          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
-          maskImage:       "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
-        }}
-      >
+      {/* Outer: clips overflow. Inner gradient divs fade left+right edges over the scrolling content. */}
+      <div className="relative overflow-hidden">
+        {/* Left fade */}
+        <div
+          className="absolute inset-y-0 left-0 w-20 z-10 pointer-events-none"
+          style={{ background: "linear-gradient(to right, oklch(8.5% 0.014 258) 0%, transparent 100%)" }}
+        />
+        {/* Right fade */}
+        <div
+          className="absolute inset-y-0 right-0 w-20 z-10 pointer-events-none"
+          style={{ background: "linear-gradient(to left, oklch(8.5% 0.014 258) 0%, transparent 100%)" }}
+        />
+
+        {/* Scrolling track */}
         <div
           className="flex w-max"
-          style={{ animation: "scroll-x 40s linear infinite" }}
+          style={{ animation: "scroll-x 44s linear infinite" }}
           aria-hidden
         >
           <LogoRow />
