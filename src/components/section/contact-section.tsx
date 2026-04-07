@@ -32,10 +32,14 @@ export function ContactSection() {
     if (Object.keys(errs).length) { setErrors(errs); return; }
     setErrors({});
     const get = (n: string) => (form.elements.namedItem(n) as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement).value;
+    // In production this would POST to an API. For now, opens mailto as fallback
+    // but still shows success state immediately so user gets feedback.
     const body = encodeURIComponent(
       `Name: ${get("name")}\nPhone: ${get("phone")}\nEmail: ${get("email") || "N/A"}\nService: ${get("service") || "Not specified"}\n\n${get("message") || "No details provided"}`
     );
-    window.location.href = `mailto:${siteConfig.email}?subject=${encodeURIComponent(`Inspection Request — ${get("name")}`)}&body=${body}`;
+    const mailLink = document.createElement("a");
+    mailLink.href = `mailto:${siteConfig.email}?subject=${encodeURIComponent(`Inspection Request — ${get("name")}`)}&body=${body}`;
+    mailLink.click();
     setDone(true);
   };
 
@@ -142,7 +146,7 @@ export function ContactSection() {
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="c-phone" className="text-label block mb-2" style={{ letterSpacing: "0.12em" }}>Phone *</label>
-                      <input id="c-phone" name="phone" type="tel" required placeholder="(612) 555-0100" className={inputCls("phone")} />
+                      <input id="c-phone" name="phone" type="tel" required placeholder="(612) 216-1186" className={inputCls("phone")} />
                       {errors.phone && <p className="text-[11px] text-red-400 mt-1.5">{errors.phone}</p>}
                     </div>
                     <div>

@@ -5,7 +5,7 @@ import { OrbitingServices } from "@/components/animations/orbiting-services";
 
 export function WorkflowConnectSection() {
   return (
-    <section className="section-py divider bg-background">
+    <section id="areas" className="section-py divider bg-background">
       <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10 space-y-24">
 
         {/* Block 1: Terminal + Services orbit */}

@@ -5,7 +5,7 @@ export function CompanyShowcase() {
   const row = [...trustLogos, ...trustLogos, ...trustLogos];
 
   return (
-    <section className="divider py-10 bg-[var(--surface-1)] overflow-hidden">
+    <section className="divider py-10 bg-[var(--surface-1)] overflow-hidden relative">
       <p className="text-center text-[10px] font-semibold tracking-[0.25em] uppercase text-muted-foreground/50 mb-7">
         Certified &amp; Partnered With Industry Leaders
       </p>
