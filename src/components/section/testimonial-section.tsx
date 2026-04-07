@@ -44,7 +44,7 @@ export function TestimonialSection() {
   const r2 = [...testimonials.slice(half),    ...testimonials.slice(half)];
 
   return (
-    <section id="testimonials" className="section-py divider bg-background">
+    <section id="testimonials" className="section-py divider bg-background overflow-hidden">
       {/* Header */}
       <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-10 mb-14">
         <p className="text-label mb-4">Social Proof</p>
@@ -67,10 +67,13 @@ export function TestimonialSection() {
         </div>
       </div>
 
-      {/* Row 1 → */}
+      {/* Row 1 → — mask fades from 65% so partial 4th card is always hidden */}
       <div
-        className="mb-4 py-2 overflow-hidden"
-        style={{ maskImage: "linear-gradient(to right, transparent 0%, black 8%, black 82%, transparent 100%)", WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 8%, black 82%, transparent 100%)" }}
+        className="mb-4 py-2"
+        style={{
+          maskImage: "linear-gradient(to right, transparent 0%, black 6%, black 65%, transparent 90%)",
+          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 6%, black 65%, transparent 90%)",
+        }}
       >
         <div className="marquee-row" style={{ "--duration": "48s", "--gap": "0px" } as React.CSSProperties} aria-hidden>
           {[0, 1].map((run) => (
@@ -83,8 +86,11 @@ export function TestimonialSection() {
 
       {/* Row 2 ← */}
       <div
-        className="py-2 overflow-hidden"
-        style={{ maskImage: "linear-gradient(to right, transparent 0%, black 8%, black 82%, transparent 100%)", WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 8%, black 82%, transparent 100%)" }}
+        className="py-2"
+        style={{
+          maskImage: "linear-gradient(to right, transparent 0%, black 6%, black 65%, transparent 90%)",
+          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 6%, black 65%, transparent 90%)",
+        }}
       >
         <div className="marquee-row" style={{ "--duration": "54s", "--gap": "0px" } as React.CSSProperties} aria-hidden>
           {[0, 1].map((run) => (
