@@ -68,7 +68,10 @@ export function TestimonialSection() {
       </div>
 
       {/* Row 1 → */}
-      <div className="relative mb-4 py-2 overflow-hidden">
+      <div
+        className="mb-4 py-2 overflow-hidden"
+        style={{ maskImage: "linear-gradient(to right, transparent 0%, black 8%, black 82%, transparent 100%)", WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 8%, black 82%, transparent 100%)" }}
+      >
         <div className="marquee-row" style={{ "--duration": "48s", "--gap": "0px" } as React.CSSProperties} aria-hidden>
           {[0, 1].map((run) => (
             <div key={run} className="flex gap-4 pl-4 shrink-0" style={{ animation: "marquee 48s linear infinite" }}>
@@ -76,12 +79,13 @@ export function TestimonialSection() {
             </div>
           ))}
         </div>
-        <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-background to-transparent pointer-events-none z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-background to-transparent pointer-events-none z-10" />
       </div>
 
       {/* Row 2 ← */}
-      <div className="relative py-2 overflow-hidden">
+      <div
+        className="py-2 overflow-hidden"
+        style={{ maskImage: "linear-gradient(to right, transparent 0%, black 8%, black 82%, transparent 100%)", WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 8%, black 82%, transparent 100%)" }}
+      >
         <div className="marquee-row" style={{ "--duration": "54s", "--gap": "0px" } as React.CSSProperties} aria-hidden>
           {[0, 1].map((run) => (
             <div key={run} className="flex gap-4 pl-4 shrink-0" style={{ animation: "marquee 54s linear infinite reverse" }}>
@@ -89,8 +93,6 @@ export function TestimonialSection() {
             </div>
           ))}
         </div>
-        <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-background to-transparent pointer-events-none z-10" />
-        <div className="absolute right-0 top-0 bottom-0 w-40 bg-gradient-to-l from-background to-transparent pointer-events-none z-10" />
       </div>
     </section>
   );
