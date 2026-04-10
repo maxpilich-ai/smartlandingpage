@@ -76,15 +76,15 @@ export function HeroSection() {
 
         {/* Headline — pure editorial weight */}
         <h1 className="heading-display text-[clamp(54px,11vw,116px)] text-foreground mb-8 sm:mb-10">
-          <span className="block">We Fight</span>
-          <span className="block gradient-text">Insurance</span>
-          <span className="block">So You Don't.</span>
+          <span className="block">Storm Damage?</span>
+          <span className="block gradient-text">We Handle</span>
+          <span className="block">The Restoration.</span>
         </h1>
 
         {/* Sub */}
         <p className="text-[15px] sm:text-lg text-muted-foreground max-w-[520px] mx-auto mb-10 sm:mb-12 leading-[1.7] font-normal">
-          Storm damage? We handle everything — inspection, claim, negotiation, restoration.{" "}
-          <span className="text-foreground/90 font-medium">Zero out-of-pocket in most cases.</span>
+          Storm damage? We inspect, document every detail, and work with your insurance company to get your home fully restored.{" "}
+          <span className="text-foreground/90 font-medium">You pay only your deductible.</span>
         </p>
 
         {/* CTAs */}
