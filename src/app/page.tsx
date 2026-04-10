@@ -6,6 +6,7 @@ import { WorkflowSection }       from "@/components/section/workflow-section";
 import { WorkflowConnectSection }from "@/components/section/workflow-connect-section";
 import { FeatureSection }        from "@/components/section/feature-section";
 import { ConnectSection }        from "@/components/section/connection-section";
+import { StormMapSection }       from "@/components/section/storm-map-section";
 import { TestimonialSection }    from "@/components/section/testimonial-section";
 import { PricingSection }        from "@/components/section/pricing-section";
 import { FAQSection }            from "@/components/section/faq-section";
@@ -26,6 +27,7 @@ export default function Home() {
         <WorkflowConnectSection />
         <FeatureSection />
         <ConnectSection />
+        <StormMapSection />
         <TestimonialSection />
         <PricingSection />
         <FAQSection />
