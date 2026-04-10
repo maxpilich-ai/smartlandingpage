@@ -25,7 +25,7 @@ export const siteConfig = {
 export const heroContent = {
   badge: "Minnesota & Florida's #1 Insurance Restoration Contractor",
   headline: "Storm Damage?\nWe Handle the Restoration.",
-  subheadline: "Storm damage? We inspect, document, and work directly with your insurance company to get your home fully restored — GAF certified, BBB A+ rated, serving Minnesota & Florida for 20+ years.",
+  subheadline: "Storm damage? We inspect, document, and work directly with your insurance company to get your home fully restored — GAF certified, BBB A+ rated, serving Minnesota & Florida for 22+ years.",
   primaryCta: "Book Free Inspection",
   secondaryCta: "See How It Works",
   stats: [
@@ -34,7 +34,8 @@ export const heroContent = {
     { value: 12000, suffix: "+", label: "Siding Projects" },
     { value: 20000, suffix: "+", label: "Gutters Installed" },
     { value: 98, suffix: "%", label: "Claim Approval Rate" },
-    { value: 20, suffix: "+", label: "Years in Minnesota" },
+    { value: 22, suffix: "+", label: "Years in Business" },
+    { value: 128, suffix: "+", label: "5-Star Reviews" },
   ],
 };
 

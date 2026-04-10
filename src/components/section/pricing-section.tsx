@@ -88,7 +88,7 @@ export function PricingSection() {
             <div className="space-y-3">
               {[
                 { icon: "🚁", t: "Free Drone Inspection",     d: "Full aerial documentation. Same week, no cost." },
-                { icon: "📋", t: "Claim Filed For You",       d: "Paperwork, Xactimate, negotiation, appeals." },
+                { icon: "📋", t: "Full Claim Documentation",   d: "Paperwork, Xactimate estimates, negotiation, appeals." },
                 { icon: "🔨", t: "Premium Materials Only",    d: "GAF, James Hardie, Andersen — no budget cuts." },
                 { icon: "✅", t: "Final Walkthrough",         d: "We don't leave until you're completely satisfied." },
                 { icon: "🛡️", t: "GAF System Warranty",      d: "Up to 50 years. Fully transferable to new owners." },
