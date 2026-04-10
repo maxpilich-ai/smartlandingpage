@@ -85,7 +85,7 @@ export function InspectionChecklist() {
 
       {checked >= ITEMS.length && (
         <div className="flex items-center gap-2 pt-2 border-t border-white/6">
-          <span className="text-green-400 text-[11px] font-semibold">✓ Report ready — claim ready to file</span>
+          <span className="text-green-400 text-[11px] font-semibold">✓ Full report ready — 100% documented</span>
         </div>
       )}
     </div>

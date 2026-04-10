@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from "react";
 const LINES = [
   { text: "$ inspect property --address '1842 Elm St, Blaine MN'", delay: 0,    color: "text-muted-foreground" },
   { text: "✓ Drone inspection scheduled: Tomorrow 9AM",             delay: 800,  color: "text-green-400" },
-  { text: "$ file-claim --carrier 'State Farm' --damage 'hail'",   delay: 1800, color: "text-muted-foreground" },
-  { text: "✓ Claim #SF-2024-88421 filed successfully",              delay: 2600, color: "text-green-400" },
+  { text: "$ document-damage --carrier 'State Farm' --damage 'hail'", delay: 1800, color: "text-muted-foreground" },
+  { text: "✓ Xactimate report prepared: 47 line items",               delay: 2600, color: "text-green-400" },
   { text: "$ negotiate --target '$34,200' --adjuster 'reluctant'", delay: 3600, color: "text-muted-foreground" },
   { text: "⚡ Negotiating… presenting Xactimate report…",           delay: 4400, color: "text-yellow-400" },
   { text: "✓ Settlement approved: $34,200",                         delay: 5800, color: "text-green-400" },
