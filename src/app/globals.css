@@ -58,6 +58,12 @@
   }
 }
 
+/* ── Real keyframes (outside @theme so browsers see them) ── */
+@keyframes scroll-x {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
 /* ── Color tokens (dark-first; this IS the primary palette) ── */
 :root {
   --radius: 0.75rem;
