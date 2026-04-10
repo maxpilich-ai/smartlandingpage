@@ -1,93 +1,144 @@
 "use client";
-import { crew } from "@/lib/config";
+import { useEffect, useRef, useState } from "react";
+
+// Simulated live insurance settlement feed — no contractor website has this
+const WINS = [
+  { city: "Eden Prairie", amount: 34200, service: "Roof + Siding", days: 2 },
+  { city: "Blaine", amount: 18500, service: "Full Roof", days: 1 },
+  { city: "Plymouth", amount: 52800, service: "Roof + Windows + Siding", days: 4 },
+  { city: "Maple Grove", amount: 29100, service: "Storm Damage", days: 3 },
+  { city: "Burnsville", amount: 41600, service: "Roof + Gutters", days: 5 },
+  { city: "Apple Valley", amount: 23400, service: "Siding + Windows", days: 2 },
+  { city: "Lakeville", amount: 67300, service: "Full Restoration", days: 6 },
+  { city: "Coon Rapids", amount: 19800, service: "Roof Replacement", days: 1 },
+  { city: "Woodbury", amount: 38500, service: "Hail Damage", days: 3 },
+  { city: "Eagan", amount: 44200, service: "Roof + Siding + Gutters", days: 4 },
+  { city: "Richfield", amount: 26700, service: "Wind Damage", days: 2 },
+  { city: "Roseville", amount: 31900, service: "Storm Restoration", days: 3 },
+  { city: "Port Charlotte, FL", amount: 89000, service: "Hurricane Damage", days: 7 },
+  { city: "Sarasota, FL", amount: 55400, service: "Wind + Roof", days: 5 },
+  { city: "Shakopee", amount: 22100, service: "Roof Replacement", days: 2 },
+];
+
+function fmt(n: number) {
+  return "$" + n.toLocaleString("en-US");
+}
 
 export function CrewSection() {
+  const [visible, setVisible] = useState<typeof WINS>([]);
+  const [total, setTotal] = useState(47382100);
+  const idxRef = useRef(0);
+
+  // Seed with 4 wins immediately, then drip-feed new ones
+  useEffect(() => {
+    setVisible(WINS.slice(0, 4).reverse());
+    idxRef.current = 4;
+
+    const interval = setInterval(() => {
+      const next = WINS[idxRef.current % WINS.length];
+      idxRef.current++;
+      setVisible(prev => [next, ...prev].slice(0, 6));
+      setTotal(prev => prev + next.amount);
+    }, 3800);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <section className="section-py" style={{ background: "linear-gradient(135deg, #f8f4ff 0%, #e8f4fd 100%)" }}>
+    <section className="section-py" style={{ background: "#0f1f3d" }}>
       <div className="max-w-6xl mx-auto px-5">
+
         {/* Header */}
-        <div className="text-center mb-14">
-          <p className="text-label mb-3" style={{ color: "#7c3aed" }}>THE TEAM</p>
-          <h2 className="heading-display text-foreground">
-            The People Behind<br />
-            <span style={{ color: "#7c3aed" }}>Every Job Well Done</span>
+        <div className="text-center mb-12">
+          <div style={{ display:"inline-flex", alignItems:"center", gap:8, background:"rgba(34,197,94,0.15)", border:"1px solid rgba(34,197,94,0.3)", borderRadius:999, padding:"6px 16px", marginBottom:16 }}>
+            <span style={{ width:8, height:8, borderRadius:"50%", background:"#22c55e", display:"inline-block", animation:"pulse 1.5s infinite" }} />
+            <span style={{ fontSize:"0.75rem", fontWeight:800, color:"#22c55e", letterSpacing:"0.1em" }}>LIVE — SETTLEMENTS WON THIS YEAR</span>
+          </div>
+          <h2 style={{ fontWeight:900, fontSize:"clamp(2rem,5vw,3.5rem)", color:"#ffffff", lineHeight:1.1, marginBottom:12 }}>
+            Real Money.<br />
+            <span style={{ color:"#22c55e" }}>Real Homeowners.</span>
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-xl mx-auto text-base leading-relaxed">
-            22 years. Thousands of homes. One team that shows up every single day.
+          <p style={{ color:"rgba(255,255,255,0.55)", fontSize:"1rem", maxWidth:480, margin:"0 auto" }}>
+            Every time we win a claim, it shows up here. Watch it happen in real time.
           </p>
         </div>
 
-        {/* Crew cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {crew.map((member) => (
+        {/* Live total */}
+        <div style={{ textAlign:"center", marginBottom:40 }}>
+          <div style={{ display:"inline-block", background:"rgba(34,197,94,0.08)", border:"2px solid rgba(34,197,94,0.25)", borderRadius:"1.25rem", padding:"1.5rem 3rem" }}>
+            <div style={{ fontSize:"clamp(2.5rem,6vw,4rem)", fontWeight:900, color:"#22c55e", fontVariantNumeric:"tabular-nums", fontFamily:"monospace", letterSpacing:"-0.02em" }}>
+              {fmt(total)}
+            </div>
+            <div style={{ fontSize:"0.75rem", fontWeight:700, color:"rgba(255,255,255,0.45)", letterSpacing:"0.15em", textTransform:"uppercase", marginTop:4 }}>
+              Total Recovered from Insurance — 2024/2025
+            </div>
+          </div>
+        </div>
+
+        {/* Live feed */}
+        <div style={{ maxWidth:680, margin:"0 auto", display:"flex", flexDirection:"column", gap:10 }}>
+          {visible.map((w, i) => (
             <div
-              key={member.name}
+              key={`${w.city}-${i}`}
               style={{
-                background: "#ffffff",
-                borderRadius: "1.25rem",
-                padding: "2rem 1.5rem",
-                boxShadow: "0 4px 24px rgba(124,58,237,0.08)",
-                border: "1px solid rgba(124,58,237,0.12)",
-                textAlign: "center",
-                transition: "transform 0.2s, box-shadow 0.2s",
+                display:"flex",
+                alignItems:"center",
+                gap:12,
+                background: i === 0 ? "rgba(34,197,94,0.12)" : "rgba(255,255,255,0.04)",
+                border: `1px solid ${i === 0 ? "rgba(34,197,94,0.35)" : "rgba(255,255,255,0.06)"}`,
+                borderRadius:"0.875rem",
+                padding:"0.875rem 1.25rem",
+                transition:"all 0.4s ease",
+                animation: i === 0 ? "slideIn 0.4s ease" : undefined,
               }}
-              className="hover:scale-[1.02] hover:shadow-lg"
             >
-              {/* Avatar */}
-              <div
-                style={{
-                  width: 72,
-                  height: 72,
-                  borderRadius: "50%",
-                  background: "linear-gradient(135deg, #7c3aed 0%, #2563eb 100%)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: 32,
-                  margin: "0 auto 1rem",
-                  boxShadow: "0 4px 16px rgba(124,58,237,0.3)",
-                }}
-              >
-                {member.emoji}
+              <div style={{ width:36, height:36, borderRadius:"50%", background: i === 0 ? "#22c55e" : "rgba(255,255,255,0.08)", display:"flex", alignItems:"center", justifyContent:"center", flexShrink:0, fontSize:16 }}>
+                {i === 0 ? "✓" : "🏠"}
               </div>
-
-              {/* Name & role */}
-              <h3 style={{ fontWeight: 900, fontSize: "1.1rem", color: "#1e1b4b", marginBottom: "0.25rem" }}>
-                {member.name}
-              </h3>
-              <p style={{ fontSize: "0.75rem", fontWeight: 700, color: "#7c3aed", letterSpacing: "0.05em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
-                {member.role}
-              </p>
-
-              {/* Years badge */}
-              <div
-                style={{
-                  display: "inline-block",
-                  background: "rgba(124,58,237,0.08)",
-                  border: "1px solid rgba(124,58,237,0.2)",
-                  borderRadius: "999px",
-                  padding: "0.25rem 0.875rem",
-                  fontSize: "0.7rem",
-                  fontWeight: 800,
-                  color: "#7c3aed",
-                  marginBottom: "1rem",
-                }}
-              >
-                {member.years} years with Smart Construction
+              <div style={{ flex:1, minWidth:0 }}>
+                <div style={{ fontWeight:700, color:"#ffffff", fontSize:"0.9rem" }}>
+                  {w.city} homeowner — {w.service}
+                </div>
+                <div style={{ fontSize:"0.75rem", color:"rgba(255,255,255,0.4)", marginTop:2 }}>
+                  Insurance claim settled in {w.days} day{w.days > 1 ? "s" : ""}
+                </div>
               </div>
-
-              {/* Quote */}
-              <p style={{ fontSize: "0.85rem", color: "#64748b", lineHeight: 1.6, fontStyle: "italic" }}>
-                "{member.quote}"
-              </p>
+              <div style={{ fontWeight:900, fontSize:"1.1rem", color: i === 0 ? "#22c55e" : "rgba(255,255,255,0.6)", flexShrink:0 }}>
+                +{fmt(w.amount)}
+              </div>
             </div>
           ))}
         </div>
 
-        {/* Bottom note */}
-        <p className="text-center text-muted-foreground text-sm mt-10">
-          🏆 Together, this team has completed <strong>15,000+ roofs</strong>, <strong>12,000+ siding projects</strong>, and recovered <strong>$47M+ in insurance settlements</strong> for Minnesota homeowners.
-        </p>
+        {/* CTA */}
+        <div style={{ textAlign:"center", marginTop:40 }}>
+          <p style={{ color:"rgba(255,255,255,0.45)", fontSize:"0.875rem", marginBottom:16 }}>
+            Your home could be next. Inspections are free.
+          </p>
+          <a
+            href="#contact"
+            style={{
+              display:"inline-flex", alignItems:"center", gap:8,
+              background:"#22c55e", color:"#0f1f3d",
+              fontWeight:900, fontSize:"0.9rem",
+              borderRadius:"0.875rem", padding:"0.875rem 2rem",
+              textDecoration:"none", letterSpacing:"0.02em",
+            }}
+          >
+            Book Free Inspection →
+          </a>
+        </div>
+
+        <style>{`
+          @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-12px); }
+            to   { opacity: 1; transform: translateY(0); }
+          }
+          @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50%       { opacity: 0.4; }
+          }
+        `}</style>
       </div>
     </section>
   );

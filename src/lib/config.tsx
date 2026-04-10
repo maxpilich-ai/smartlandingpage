@@ -225,12 +225,6 @@ export const serviceAreas = {
   fl: ["Sarasota", "Bradenton", "Venice", "Nokomis", "North Port", "Englewood", "Port Charlotte", "Punta Gorda", "Longboat Key", "Siesta Key", "Osprey", "Palmetto"],
 };
 
-export const crew = [
-  { name: "Gary", role: "Lead Project Manager", years: 18, quote: "Every homeowner deserves a fair settlement. We make sure they get it.", emoji: "👷" },
-  { name: "Vadim", role: "Senior Estimator & Adjuster Liaison", years: 14, quote: "Insurance companies speak Xactimate. So do I — fluently.", emoji: "📋" },
-  { name: "Vladimir", role: "Master Installer", years: 12, quote: "I've installed 15,000 roofs. I treat every one like it's my own home.", emoji: "🔨" },
-  { name: "Pavel", role: "Owner & Founder", years: 22, quote: "I started this company to be the contractor I wished I'd had. That's still the goal.", emoji: "🏠" },
-];
 
 export const certifications = [
   { name: "MN License BC 63/65/73", label: "Contractor License", link: "https://www.dli.mn.gov", icon: "🏛️" },
