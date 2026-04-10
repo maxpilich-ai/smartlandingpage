@@ -76,9 +76,9 @@ export function HeroSection() {
 
         {/* Headline — pure editorial weight */}
         <h1 className="heading-display text-[clamp(54px,11vw,116px)] text-foreground mb-8 sm:mb-10">
-          <span className="block">We Restore</span>
-          <span className="block gradient-text">Your Home.</span>
-          <span className="block">Insurance Pays.</span>
+          <span className="block">We Fix Homes.</span>
+          <span className="block gradient-text">Any Damage.</span>
+          <span className="block">Done Right.</span>
         </h1>
 
         {/* Sub */}
