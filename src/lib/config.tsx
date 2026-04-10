@@ -4,7 +4,7 @@
 export const siteConfig = {
   name: "Smart Construction & Remodeling",
   shortName: "Smart Construction",
-  tagline: "We Fight Insurance So You Don't Have To",
+  tagline: "Minnesota's Insurance Restoration Experts",
   phone: "(612) 216-1186",
   phoneRaw: "6122161186",
   email: "Office@SmartConstructionMN.com",
@@ -24,8 +24,8 @@ export const siteConfig = {
 
 export const heroContent = {
   badge: "Minnesota & Florida's #1 Insurance Restoration Contractor",
-  headline: "We Fight Insurance\nSo You Don't Have To",
-  subheadline: "Storm damage? Don't pay a dime out of pocket. We handle the insurance claim from inspection to completion — GAF certified, BBB A+ rated, 20+ years fighting for Minnesota homeowners.",
+  headline: "Storm Damage?\nWe Handle the Restoration.",
+  subheadline: "Storm damage? We inspect, document, and work directly with your insurance company to get your home fully restored — GAF certified, BBB A+ rated, serving Minnesota & Florida for 20+ years.",
   primaryCta: "Book Free Inspection",
   secondaryCta: "See How It Works",
   stats: [
@@ -37,13 +37,12 @@ export const heroContent = {
 };
 
 export const trustLogos = [
-  { name: "GAF Master Elite", abbr: "GAF", color: "#E31837" },
+  { name: "GAF Certified", abbr: "GAF", color: "#E31837" },
   { name: "James Hardie", abbr: "HARDIE", color: "#003DA5" },
   { name: "Andersen Windows", abbr: "ANDERSEN", color: "#006B3F" },
   { name: "Pella Windows", abbr: "PELLA", color: "#C8102E" },
   { name: "BBB A+", abbr: "BBB A+", color: "#0066CC" },
   { name: "IICRC Certified", abbr: "IICRC", color: "#1B4F8A" },
-  { name: "HAAG Certified", abbr: "HAAG", color: "#4A4A4A" },
   { name: "Owens Corning", abbr: "OC PLATINUM", color: "#FF6600" },
 ];
 
@@ -53,8 +52,8 @@ export const services = [
     icon: "🏠",
     title: "Roofing",
     headline: "Full Roof Replacement",
-    description: "GAF Timberline HDZ primary. Hail, wind, storm damage — we document everything and fight your insurer for full replacement value.",
-    bullets: ["GAF Master Elite Certified", "50-year warranty available", "Owens Corning & CertainTeed options", "Ice dam & ventilation specialists"],
+    description: "GAF Timberline HDZ primary. Hail, wind, storm damage — we document everything and work with your insurance for full replacement value.",
+    bullets: ["GAF Certified Installer", "50-year warranty available", "Owens Corning & CertainTeed options", "Ice dam & ventilation specialists"],
     image: "/public/instant-integration.png",
   },
   {
@@ -80,24 +79,24 @@ export const services = [
     icon: "⛈️",
     title: "Storm Damage",
     headline: "Full Storm Restoration",
-    description: "Hail, wind, tornado, flood — we assess all damage, file the claim for you, and manage the entire restoration from start to finish.",
+    description: "Hail, wind, tornado, flood — we assess all damage, document everything thoroughly, and manage the entire restoration process from start to finish.",
     bullets: ["Free drone inspection", "Xactimate estimates", "Direct insurance billing", "Emergency board-up & tarping"],
     image: "/public/instant-integration.png",
   },
 ];
 
 export const claimProcess = [
-  { step: "01", title: "Free Inspection", description: "We dispatch a HAAG-certified inspector to your property within 24 hours. Drone aerial + ground inspection. No cost, no obligation.", icon: "🔍" },
-  { step: "02", title: "Claim Filed For You", description: "We document every inch of damage with professional photos, Xactimate software, and a detailed estimate. You sign — we handle the rest.", icon: "📋" },
-  { step: "03", title: "Insurance Approves", description: "Our team negotiates directly with your adjuster. 98% of our claims get approved. We fight until you get what you're owed.", icon: "✅" },
+  { step: "01", title: "Free Inspection", description: "We dispatch a licensed inspector to your property within 24 hours. Drone aerial + ground inspection. No cost, no obligation.", icon: "🔍" },
+  { step: "02", title: "Damage Documentation", description: "We document every inch of damage with professional photos, Xactimate software, and a detailed estimate — everything your insurance company needs.", icon: "📋" },
+  { step: "03", title: "Insurance Works With You", description: "Our team communicates directly with your adjuster and provides all required documentation. 98% of our customers receive full approval.", icon: "✅" },
   { step: "04", title: "Work Completed", description: "Our licensed crews complete the work using premium materials. Final walkthrough with you. We don't leave until it's perfect.", icon: "🔨" },
 ];
 
 export const features = [
   {
     icon: "🛡️",
-    title: "Zero Out-of-Pocket",
-    description: "You pay only your deductible — sometimes less. We bill your insurance directly and maximize every line item.",
+    title: "Deductible Only",
+    description: "You pay your deductible — that's it. We bill your insurance directly for all covered work and maximize every line item in your claim.",
   },
   {
     icon: "📊",
@@ -116,13 +115,13 @@ export const features = [
   },
   {
     icon: "🏅",
-    title: "GAF Master Elite",
-    description: "Only 3% of roofing contractors earn this status. It means longer warranties and better materials at no extra cost to you.",
+    title: "GAF Certified",
+    description: "Authorized GAF installer offering premium warranties and materials. Quality you can trust backed by the industry's leading manufacturer.",
   },
   {
     icon: "🤝",
     title: "Insurance Specialists",
-    description: "20+ years fighting State Farm, Allstate, USAA, Progressive, Travelers. We know every tactic they use to underpay.",
+    description: "20+ years working with State Farm, Allstate, USAA, Progressive, Travelers. We know exactly what documentation each carrier requires.",
   },
 ];
 
@@ -180,10 +179,7 @@ export const faqs = [
 ];
 
 export const team = [
-  { name: "Pavel Pilich", role: "Owner & Operator", bio: "Fighting insurance companies for Minnesota homeowners since 2004. Former insurance adjuster — knows every tactic they use." },
-  { name: "Vadim", role: "Project Manager", bio: "15+ years managing large-scale restoration projects across the Twin Cities metro." },
-  { name: "Constantine", role: "Insurance Supplementer", bio: "Specialist in Xactimate documentation and insurance claim appeals." },
-  { name: "Erik", role: "Office & Sales Manager", bio: "Your first point of contact. Makes sure every project runs on time and on budget." },
+  { name: "Pavel Pilich", role: "Owner & Operator", bio: "Serving Minnesota homeowners since 2004. Deep expertise in insurance restoration — knows exactly what it takes to get claims approved." },
 ];
 
 export const serviceAreas = {
@@ -195,6 +191,5 @@ export const certifications = [
   { name: "MN License BC 63/65/73", label: "Contractor License", link: "https://www.dli.mn.gov", icon: "🏛️" },
   { name: "BBB A+", label: "Accredited Since 2010", link: "https://www.bbb.org/us/mn/minneapolis/profile/general-contractor/smart-construction-remodeling-inc-0704-96160987", icon: "⭐" },
   { name: "IICRC Certified", label: "Clean Trust Firm", link: "https://www.iicrc.org", icon: "✅" },
-  { name: "GAF Master Elite", label: "Top 3% Nationwide", link: "https://www.gaf.com", icon: "🏅" },
-  { name: "HAAG Certified", label: "Storm Inspector", link: "https://www.haag.com", icon: "🔍" },
+  { name: "GAF Certified", label: "Authorized Installer", link: "https://www.gaf.com", icon: "🏅" },
 ];

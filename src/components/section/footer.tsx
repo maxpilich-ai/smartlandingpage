@@ -29,7 +29,7 @@ export function Footer() {
               </div>
             </a>
             <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-              Minnesota's insurance restoration specialists since 2004. We fight your insurance company so you don't have to.
+              Minnesota's insurance restoration specialists since 2004. We work with your insurance company to get your home fully restored.
             </p>
             <p className="text-[11px] text-muted-foreground/50 mb-5">{siteConfig.license}</p>
             <div className="flex gap-2.5" aria-label="Social links">

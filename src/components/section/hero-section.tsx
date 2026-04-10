@@ -128,7 +128,7 @@ export function HeroSection() {
 
         {/* Micro trust strip */}
         <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mt-9 text-[11px] text-muted-foreground/50 tracking-widest uppercase">
-          {["BBB A+", "GAF Master Elite", "IICRC Certified", "MN Licensed", "HAAG Inspector"].map((t, i) => (
+          {["BBB A+", "GAF Certified", "IICRC Certified", "MN Licensed", "20+ Years"].map((t, i) => (
             <span key={t} className="flex items-center gap-2">
               {i > 0 && <span className="hidden sm:inline-block w-px h-3 bg-current opacity-30" />}
               {t}

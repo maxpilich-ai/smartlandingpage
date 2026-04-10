@@ -58,7 +58,7 @@ export function ContactSection() {
               Book Your<br />Inspection.
             </h2>
             <p className="text-muted-foreground text-base sm:text-lg max-w-[340px] leading-relaxed">
-              HAAG-certified inspector at your property within 24 hours. No cost. No obligation.
+              licensed inspector at your property within 24 hours. No cost. No obligation.
             </p>
           </div>
         </div>

@@ -11,8 +11,8 @@ export const viewport = {
 
 export const metadata: Metadata = {
   title: "Smart Construction & Remodeling | Minnesota's #1 Insurance Restoration",
-  description: "Storm damage? We fight your insurance company so you don't have to. Free drone inspection, Xactimate estimates, 98% claim approval rate. Serving Minnesota & Florida since 2004.",
-  keywords: "storm damage contractor Minnesota, roofing insurance claim, hail damage repair, Smart Construction Remodeling, GAF Master Elite, Blaine MN contractor",
+  description: "Storm damage? We inspect, document, and work with your insurance company for full restoration. Free drone inspection, Xactimate estimates, 98% claim approval rate. Serving Minnesota & Florida since 2004.",
+  keywords: "storm damage contractor Minnesota, roofing insurance claim, hail damage repair, Smart Construction Remodeling, GAF certified, Blaine MN contractor",
   openGraph: {
     title: "Smart Construction & Remodeling — We Fight Insurance So You Don't Have To",
     description: "Free drone inspection. Direct insurance billing. 15,000+ projects completed. 98% claim approval rate.",
