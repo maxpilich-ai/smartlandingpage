@@ -30,8 +30,11 @@ export function CompanyShowcase() {
         Certified &amp; Partnered With Industry Leaders
       </p>
 
-      {/* Outer: clips overflow. Inner gradient divs fade left+right edges over the scrolling content. */}
-      <div className="relative overflow-hidden">
+      {/* Outer: clips overflow + fades edges with mask */}
+      <div
+        className="relative overflow-hidden"
+        style={{ maskImage: "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)", WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)" }}
+      >
 
 
         {/* Scrolling track */}
