@@ -1,4 +1,4 @@
-import { features, team } from "@/lib/config";
+import { features } from "@/lib/config";
 
 export function FeatureSection() {
   return (
@@ -46,25 +46,7 @@ export function FeatureSection() {
           </div>
         </div>
 
-        {/* Team */}
-        <div>
-          <div className="mb-10">
-            <p className="text-label mb-4">The Team</p>
-            <h3 className="heading-display text-[clamp(32px,5vw,52px)] text-foreground">Real People. Real Names.</h3>
-          </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {team.map((member, i) => (
-              <div key={member.name} className="card-base rounded-2xl p-6 cursor-default">
-                <div className={`w-11 h-11 rounded-2xl flex items-center justify-center text-lg font-black text-white mb-5 ${i === 0 ? "bg-primary" : "bg-white/10"}`}>
-                  {member.name.charAt(0)}
-                </div>
-                <h4 className="font-bold text-foreground text-sm leading-tight">{member.name}</h4>
-                <p className="text-[11px] text-primary font-semibold mt-0.5 mb-3 tracking-wide">{member.role}</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">{member.bio}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+
       </div>
     </section>
   );

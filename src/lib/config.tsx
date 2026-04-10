@@ -217,9 +217,7 @@ export const faqs = [
   },
 ];
 
-export const team = [
-  { name: "Pavel Pilich", role: "Owner & Operator", bio: "Serving Minnesota homeowners since 2004. Deep expertise in insurance restoration — knows exactly what it takes to get claims approved." },
-];
+export const team = [];
 
 export const serviceAreas = {
   mn: ["Minneapolis", "St. Paul", "Blaine", "Eden Prairie", "Plymouth", "Maple Grove", "Burnsville", "Apple Valley", "Eagan", "Coon Rapids", "Brooklyn Park", "Lakeville", "Woodbury", "Richfield", "Roseville", "Minnetonka", "Edina", "St. Louis Park", "Shakopee", "Savage"],

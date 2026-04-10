@@ -13,7 +13,6 @@ import { CTASection }            from "@/components/section/cta-section";
 import { ContactSection }        from "@/components/section/contact-section";
 import { Footer }                from "@/components/section/footer";
 import { ScrollToTop }           from "@/components/ui/scroll-to-top";
-import { CrewSection }           from "@/components/section/crew-section";
 
 export default function Home() {
   return (
@@ -28,7 +27,6 @@ export default function Home() {
         <FeatureSection />
         <ConnectSection />
         <TestimonialSection />
-        <CrewSection />
         <PricingSection />
         <FAQSection />
         <CTASection />
