@@ -30,7 +30,9 @@ export const heroContent = {
   secondaryCta: "See How It Works",
   stats: [
     { value: 47382100, prefix: "", suffix: "+", label: "Recovered from Insurance", format: "currency" },
-    { value: 15000, suffix: "+", label: "Projects Completed" },
+    { value: 15000, suffix: "+", label: "Roofs Completed" },
+    { value: 12000, suffix: "+", label: "Siding Projects" },
+    { value: 20000, suffix: "+", label: "Gutters Installed" },
     { value: 98, suffix: "%", label: "Claim Approval Rate" },
     { value: 20, suffix: "+", label: "Years in Minnesota" },
   ],
@@ -81,6 +83,42 @@ export const services = [
     headline: "Full Storm Restoration",
     description: "Hail, wind, tornado, flood — we assess all damage, document everything thoroughly, and manage the entire restoration process from start to finish.",
     bullets: ["Free drone inspection", "Xactimate estimates", "Direct insurance billing", "Emergency board-up & tarping"],
+    image: "/public/instant-integration.png",
+  },
+  {
+    id: "gutters",
+    icon: "🌧️",
+    title: "Gutters",
+    headline: "Seamless Gutter Systems",
+    description: "Seamless aluminum gutters and leaf guard systems — installed correctly the first time, billed to your insurance when storm damage is present.",
+    bullets: ["Seamless aluminum & copper", "Leaf guard systems", "20,000+ gutters installed", "Foundation protection guaranteed"],
+    image: "/public/instant-integration.png",
+  },
+  {
+    id: "basement",
+    icon: "🏗️",
+    title: "Basement Finishing",
+    headline: "Basement Finishing",
+    description: "Framing, insulation, flooring, egress windows — we unlock your home's full potential and handle any insurance-related water or flood damage.",
+    bullets: ["Full finish or partial", "Egress windows installed", "Flood & water damage coverage", "Permitted & inspected"],
+    image: "/public/intelligent-reviews.png",
+  },
+  {
+    id: "fire",
+    icon: "🔥",
+    title: "Fire & Smoke Damage",
+    headline: "Fire Damage Restoration",
+    description: "Structural repairs, smoke remediation, and full rebuilds after fire or smoke damage — all documented for your insurance carrier.",
+    bullets: ["Emergency board-up & securing", "Smoke & odor remediation", "Structural rebuilds", "Full insurance documentation"],
+    image: "/public/multi-line-edits.png",
+  },
+  {
+    id: "painting",
+    icon: "🎨",
+    title: "Painting & General",
+    headline: "Interior & Exterior Painting",
+    description: "Interior and exterior painting, decks, additions, porches, and structural repairs. Full-service remodeling when your project goes beyond the basics.",
+    bullets: ["Interior & exterior painting", "Deck & porch restoration", "Home additions", "Structural repairs"],
     image: "/public/instant-integration.png",
   },
 ];
@@ -186,6 +224,13 @@ export const serviceAreas = {
   mn: ["Minneapolis", "St. Paul", "Blaine", "Eden Prairie", "Plymouth", "Maple Grove", "Burnsville", "Apple Valley", "Eagan", "Coon Rapids", "Brooklyn Park", "Lakeville", "Woodbury", "Richfield", "Roseville", "Minnetonka", "Edina", "St. Louis Park", "Shakopee", "Savage"],
   fl: ["Sarasota", "Bradenton", "Venice", "Nokomis", "North Port", "Englewood", "Port Charlotte", "Punta Gorda", "Longboat Key", "Siesta Key", "Osprey", "Palmetto"],
 };
+
+export const crew = [
+  { name: "Gary", role: "Lead Project Manager", years: 18, quote: "Every homeowner deserves a fair settlement. We make sure they get it.", emoji: "👷" },
+  { name: "Vadim", role: "Senior Estimator & Adjuster Liaison", years: 14, quote: "Insurance companies speak Xactimate. So do I — fluently.", emoji: "📋" },
+  { name: "Vladimir", role: "Master Installer", years: 12, quote: "I've installed 15,000 roofs. I treat every one like it's my own home.", emoji: "🔨" },
+  { name: "Pavel", role: "Owner & Founder", years: 22, quote: "I started this company to be the contractor I wished I'd had. That's still the goal.", emoji: "🏠" },
+];
 
 export const certifications = [
   { name: "MN License BC 63/65/73", label: "Contractor License", link: "https://www.dli.mn.gov", icon: "🏛️" },
