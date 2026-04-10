@@ -106,7 +106,7 @@ export function HeroSection() {
         </div>
 
         {/* Stats grid — editorial number blocks */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-white/6 border border-white/6 rounded-2xl overflow-hidden">
+        <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-y lg:divide-y-0 divide-white/6 border border-black/8 rounded-2xl overflow-hidden">
           {heroContent.stats.map((s, i) => (
             <div
               key={i}
@@ -150,10 +150,10 @@ export function HeroSection() {
       </a>
 
       {/* Mobile sticky CTA bar */}
-      <div className="fixed bottom-0 inset-x-0 z-40 md:hidden flex border-t border-white/8 bg-[oklch(8.5%_0.014_258/97%)] backdrop-blur-2xl">
+      <div className="fixed bottom-0 inset-x-0 z-40 md:hidden flex border-t border-black/8 bg-[oklch(98%_0.004_250/97%)] backdrop-blur-2xl">
         <a
           href={`tel:${siteConfig.phoneRaw}`}
-          className="flex-1 flex items-center justify-center gap-2 py-4 text-sm font-bold text-primary border-r border-white/8 min-h-[56px]"
+          className="flex-1 flex items-center justify-center gap-2 py-4 text-sm font-bold text-primary border-r border-black/8 min-h-[56px]"
         >
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
             <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.73A2 2 0 012 .84h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.9a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>

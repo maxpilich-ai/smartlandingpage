@@ -33,7 +33,7 @@ export function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-[oklch(8.5%_0.014_258/96%)] backdrop-blur-2xl border-b border-white/6 shadow-[0_1px_0_oklch(100%_0_0/4%)]"
+          ? "bg-[oklch(98%_0.004_250/96%)] backdrop-blur-2xl border-b border-black/8 shadow-[0_1px_0_rgba(0,0,0,0.06)]"
           : "bg-transparent"
       }`}
     >
@@ -103,7 +103,7 @@ export function Navbar() {
         className={`md:hidden overflow-hidden transition-all duration-300 ${menuOpen ? "max-h-[400px] border-t border-white/5" : "max-h-0"}`}
         aria-hidden={!menuOpen}
       >
-        <nav className="bg-[oklch(8.5%_0.014_258/98%)] backdrop-blur-2xl max-w-7xl mx-auto px-5 py-4 flex flex-col gap-1">
+        <nav className="bg-[oklch(98%_0.004_250/98%)] backdrop-blur-2xl max-w-7xl mx-auto px-5 py-4 flex flex-col gap-1">
           {links.map(({ href, label }) => (
             <a
               key={href}
@@ -114,7 +114,7 @@ export function Navbar() {
               {label}
             </a>
           ))}
-          <div className="pt-3 border-t border-white/6 mt-2 flex flex-col gap-2">
+          <div className="pt-3 border-t border-black/8 mt-2 flex flex-col gap-2">
             <a
               href={`tel:${siteConfig.phoneRaw}`}
               className="px-4 py-3 text-sm font-semibold text-primary flex items-center gap-2 min-h-[44px]"

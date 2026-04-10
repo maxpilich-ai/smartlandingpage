@@ -302,8 +302,8 @@
 /* ── Input / select styling ── */
 .form-input {
   width: 100%;
-  background: oklch(8.5% 0.014 258);
-  border: 1px solid oklch(100% 0 0 / 10%);
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.14);
   border-radius: 0.75rem;
   padding: 0.875rem 1rem;
   font-size: 0.875rem;
@@ -313,9 +313,9 @@
   outline: none;
   appearance: none;
 }
-.form-input::placeholder { color: oklch(56% 0.008 255 / 50%); }
+.form-input::placeholder { color: rgba(0,0,0,0.35); }
 .form-input:focus {
-  border-color: oklch(61% 0.235 244 / 50%);
-  box-shadow: 0 0 0 3px oklch(61% 0.235 244 / 12%);
+  border-color: oklch(45% 0.22 244 / 60%);
+  box-shadow: 0 0 0 3px oklch(45% 0.22 244 / 10%);
 }
-.form-input.error { border-color: oklch(62% 0.22 25 / 60%); }
+.form-input.error { border-color: oklch(57% 0.22 25 / 60%); }
