@@ -30,8 +30,11 @@ export function CompanyShowcase() {
         Certified &amp; Partnered With Industry Leaders
       </p>
 
-      {/* Outer: clips overflow, logos scroll left like a snake */}
-      <div className="relative overflow-hidden">
+      {/* Outer: clips overflow, soft entry on right */}
+      <div
+        className="relative overflow-hidden"
+        style={{ maskImage: "linear-gradient(to right, black 0%, black 90%, transparent 100%)", WebkitMaskImage: "linear-gradient(to right, black 0%, black 90%, transparent 100%)" }}
+      >
 
 
         {/* Scrolling track */}
