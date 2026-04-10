@@ -160,7 +160,7 @@ export const features = [
   {
     icon: "🤝",
     title: "Insurance Specialists",
-    description: "20+ years working with State Farm, Allstate, USAA, Progressive, Travelers. We know exactly what documentation each carrier requires.",
+    description: "22+ years working with State Farm, Allstate, USAA, Progressive, Travelers. We know exactly what documentation each carrier requires.",
   },
 ];
 
