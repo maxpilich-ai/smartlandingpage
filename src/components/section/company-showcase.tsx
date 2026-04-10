@@ -33,7 +33,7 @@ export function CompanyShowcase() {
       {/* Outer: clips overflow + fades edges with mask */}
       <div
         className="relative overflow-hidden"
-        style={{ maskImage: "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)", WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)" }}
+        style={{ maskImage: "linear-gradient(to right, transparent 0%, black 8%, black 100%)", WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 8%, black 100%)" }}
       >
 
 
